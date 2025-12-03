@@ -1,0 +1,30 @@
+# Tarea en clase: Creación en Post con JSON Server y agregar paginador
+
+## Descripción
+En esta tarea se implementó un componente `NewPost` que permite crear un nuevo post utilizando el método **POST** hacia un servidor JSON Server.  
+Se añadieron las siguientes funcionalidades:
+- Link para regresar al listado de posts desde el formulario.
+- Validación para evitar envío si los campos de título o contenido están vacíos.
+- Limpieza de campos luego de hacer el envío.
+- Mensaje de confirmación y redirección al listado.
+- Paginación en el listado de posts usando parámetros `?_page` y `?_limit`.
+
+## Reflexión sobre el uso de endpoints
+Durante la clase se trabajó con endpoints REST proporcionados por JSON Server. Esto permitió comprender cómo funcionan las operaciones básicas:
+- **GET** para obtener datos.
+- **POST** para crear nuevos registros.
+- **PUT/PATCH** para actualizar.
+- **DELETE** para eliminar.
+
+El ejercicio me ayudo para conocer la importancia de validar datos antes de enviarlos y de manejar respuestas del servidor para mejorar la experiencia del usuario.
+
+## Explicación sobre CORS
+Investigue que CORS (Cross-Origin Resource Sharing) es un mecanismo de seguridad que restringe las solicitudes HTTP entre diferentes dominios.  
+En clase, al consumir el JSON Server desde una aplicación React, surgió el problema de que el navegador bloqueaba las peticiones por política de CORS.  
+
+### Solución aplicada:
+- JSON Server incluye soporte para CORS por defecto, pero en algunos casos se configura el **proxy** en `package.json` de React:
+```json
+{
+  "proxy": "http://localhost:3000"
+}
